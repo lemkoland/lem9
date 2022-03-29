@@ -20,7 +20,7 @@
 </g-link>
 </div>
 
-<h2>Dowiedz się więcej:</h2>
+<!-- <h2>Dowiedz się więcej:</h2>
       <ul class="pages-list">
         <li v-for="edge in $page.allWordPressPage.edges" :key="edge.node.id"  @click="niePokaMenu" >
           <g-link :to="edge.node.path">
@@ -36,7 +36,30 @@
             <p>{{edge.node.title}}</p>
           </g-link>
         </li>
-      </ul>
+      </ul> -->
+
+      <li @click="niePokaMenu"><g-link  to="/cat/nowyny/">Новины / Aktualności</g-link></li>
+      <li @click="niePokaMenu"><g-link  to="/o-nas/">O nas / О нас</g-link></li>
+      <li @click="niePokaMenu"><g-link  to="/wspolpraca/">Współpraca</g-link></li>
+      <li @click="niePokaMenu"><g-link  to="/klub-lemkoland/">Klub Lemkoland / Клюб Лемколянд</g-link></li>
+      <li @click="niePokaMenu"><g-link  to="/czasopismo/">Czasopismo / Часопис</g-link></li>
+      <li @click="niePokaMenu"><g-link  to="/cat/sklep/">Sklep / Склеп</g-link></li>
+      <li></li>
+      <li @click="niePokaMenu"><g-link to="/cat/besidujeme-po-naszomu/">Бесідуєме по нашому / Rozmawiamy po naszemu</g-link></li>
+      <li @click="niePokaMenu"><g-link to="/cat/hry-i-zabawy/">Гры і забавы / Gry i zabawy</g-link></li>
+      <li @click="niePokaMenu"><g-link to="/cat/malowanki/">Малюванкы / Malowanki</g-link></li>
+      <li @click="niePokaMenu"><g-link to="/cat/spiwanky-i-opowidania/">Сьпіванкы і оповіданя / Śpiewanki i opowiadania</g-link></li>
+      <li @click="niePokaMenu"><g-link to="/cat/rukotwory/">Рукотворы / Rękodzieło</g-link></li>
+      <li></li>
+      <li @click="niePokaMenu"><g-link to="/cat/dla-rodzicow-i-nauczycieli/">Для родичів і учытелів / Dla rodziców i nauczycieli</g-link></li>
+      <li @click="niePokaMenu"><g-link to="/cat/czytalnia/">Чытальня / Czytelnia</g-link></li>
+      <li></li>
+      <li @click="niePokaMenu"><g-link to="/kontakt/">Контакт / Kontakt</g-link></li>
+      <li></li>
+      <li @click="niePokaMenu"lo><g-link to="https://www.facebook.com/Lemkoland/">FB</g-link></li>
+      <li @click="niePokaMenu"lo><g-link to="https://www.youtube.com/user/lemkoland">YT</g-link></li>
+
+
     </nav>
     <slot/>
     <hr>
@@ -208,6 +231,12 @@ iframe {
 }
 .nav h2 {
   color: #000!important;
+}
+.nav li {
+  text-decoration: none;
+}
+.nav li a {
+  color: #000;
 }
 
  @media screen and (orientation:portrait) {
