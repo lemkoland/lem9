@@ -1,11 +1,24 @@
 <template>
   <Layout>
-    <div class="loading">
-      <g-image   alt="loading" src="~/assets/loading-1.gif"   />
-    </div>
+
 
     <div class="dragaj" id="dragaj">
+      <div class="reload">
+        <g-link to="https://lemkoland.com/garnki">
+        <g-image class="reload" alt="reload" src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/reload.svg"  />
+        </g-link>
+      </div>
+      <div class="wzorek">
 
+      </div>
+      <div class="garnki-ruchome">
+        <g-image class="draggable garnek garnek5" alt="garnek" src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/ga5.svg"  />
+        <g-image class="draggable garnek garnek4" alt="garnek" src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/ga4.svg"  />
+        <g-image class="draggable garnek garnek3" alt="garnek" src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/ga3.svg"  />
+        <g-image class="draggable garnek garnek2" alt="garnek" src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/ga2.svg"  />
+        <g-image class="draggable garnek garnek1" alt="garnek" src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/ga1.svg"  />
+
+      </div>
 
 
 
@@ -100,11 +113,6 @@ export default {
   },
   data() {
     return {
-      tablica: ["01-bandurky", "01-arbuz", "02-buraki", "02-banany", "03-cebula", "03-czeresnie",
-       "04-chrzan", "04-agrest", "05-czosnek", "05-gruszka", "06-fasola", "06-jablko", "07-groch", "07-jafyry",
-       "08-kalafior", "08-poziomki", "09-kompery", "09-limon-cytryna", "10-marchew", "10-maliny",
-       "11-ogorki", "11-sliwki", "12-papryka", "12-truskawki", "13-pietruszka", "13-winogron",
-       "14-pomidory", "14-wisnie", "15-salata"],
        i: 0,
        z: 0,
        poka:'nic',
@@ -112,54 +120,9 @@ export default {
     }
   },
   methods: {
-    nowe() {
-      this.poka = 'działa'
-      let x = Math.floor(Math.random() * tablica.length);
-      let nazwa = this.tablica[x];
-      let obrazek = '<img src="http://lem5.sukabilgorajska.pl/uploads/2022/03/04-agrest.svg" class="draggable owoce dragany" />';
-      this.pokapoka = obrazek
-      // this.pokapoka = nazwa;
-      this.i++;
-      this.z++;
-      const nowy = document.createElement("div");
-      nowy.className = 'draggable owoce dragany';
-      // let obrazek = '<img src=' +'http://lem5.sukabilgorajska.pl/uploads/2022/03/' + '04-agrest' + '.svg' + 'class=' + 'draggable owoce dragany' + '/>'
-      nowy.innerHTML = obrazek
-      const target = document.querySelector('.nowe');
-      target.appendChild(nowy);
-    },
-
-    losowanko() {
-      if (i === 10) {
-
-        this.i = 0;
-        this.z = 10;
-      }
-
-      let x = Math.floor(Math.random() * tablica.length);
-      let nazwa = tablica[x];
-      this.i++;
-      this.z++;
-      if (x % 2 === 0) {
-        const nowy = document.createElement("div");
-        nowy.className = 'draggable owoce dragany';
-        let obrazek = '<img src=' +'http://lem5.sukabilgorajska.pl/uploads/2022/03/' + nazwa + '.svg' + 'class=' + 'draggable owoce dragany' + '/>'
-        nowy.innerHTML = obrazek
-        const target = document.querySelector('.nowe');
-        target.appendChild(nowy);
 
 
 
-
-
-      }
-      else {
-        $("#odp").prepend("<img src='http://lem1.sukabilgorajska.pl/uploads/2017/03/owoce/" + nazwa + ".svg' style='z-index:" + z + "' class='owoce nazwa ui-widget-content'/>");
-        $("#gra-calak").append("<audio autoplay ><source src='http://lem1.sukabilgorajska.pl/uploads/2017/03/owoce/" + nazwa + ".mp3' type='audio/mpeg'></audio>" );
-        owoce();
-      }
-
-    } // koniec losowanko
 
   },
   mounted() {
@@ -365,36 +328,57 @@ interact('.dropzone2').dropzone({
   background-size: cover;
 
 }
-.loading  {
-  position: fixed;
-  top:0; left: 0;
-  z-index: 19;
-  width: 100vw!important;
-  height: 100vh!important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.garnki-ruchome {
+  background-image: url("https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/skrzynia.svg");
+  background-repeat: no-repeat;
+  background-position:  top;
+  padding: 0 0 4rem 0;
+  min-width: 15rem;
+  min-height: 40rem;
 }
-.loading img {
-  border-radius: 50%;
-}
+
+
 
 
 @media only screen and (orientation: landscape) {
-  .dropzony {
-      display: flex;
-      margin: 50vh 0 0 0;
+  .garnek {
+    max-width: 16vw;
   }
+  .wzorek {
+    width: 40vw;
+    height: 40vh;
+    position: absolute;
+    top: 0; right: 0;
+    background-image: url('https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/wzor_1.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .reload {
+    position: absolute;
+    top: 0; left: 0;
+    width: 10vw;
+    height: 10vw;
+  }
+
 }
 @media only screen and (orientation: portrait) {
-  .dropzony {
-      display: flex;
-      flex-direction: column;
-      margin: 0;
-      padding: 0;
-      display: none;
-
-
+  .garnek {
+    max-width: 26vw;
+  }
+  .wzorek {
+    width: 100vw;
+    height: 24vh;
+    position: absolute;
+    bottom: 0; right: 0;
+    background-image: url('https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/wzor_1.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .reload {
+    position: absolute;
+    top: 3vh; left: 3vh;
+    width: 10vh;
+    height: 10vh;
   }
 }
 </style>
