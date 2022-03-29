@@ -1,12 +1,31 @@
 <template>
   <Layout>
-    <div class="loading">
-      <g-image   alt="loading" src="~/assets/loading-1.gif"   />
-    </div>
 
-    <div class="dragaj" id="dragaj" @click="nowe">
-
-
+    <div class="dragaj" id="dragaj" >
+      <div class="draggable warzywa dragany">
+        <img src="http://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/05-czosnek.svg" /></div>
+      <div class="draggable owoce dragany">
+        <img src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/01-arbuz.svg" /></div>
+      <div class="draggable warzywa dragany">
+        <img src="http://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/02-buraki.svg" /></div>
+      <div class="draggable warzywa dragany">
+        <img src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/06-fasola.svg" /></div>
+      <div class="draggable owoce dragany">
+        <img src="http://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/10-maliny.svg" /></div>
+      <div class="draggable owoce dragany">
+        <img src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/05-gruszka.svg" /></div>
+      <div class="draggable owoce dragany">
+        <img src="http://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/07-jafyry.svg" /></div>
+      <div class="draggable warzywa dragany">
+        <img src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/07-groch.svg" /></div>
+      <div class="draggable owoce dragany">
+        <img src="http://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/09-limon-cytryna.svg" /></div>
+      <div class="draggable owoce dragany">
+        <img src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/13-winogron.svg" /></div>
+      <div class="draggable warzywa dragany">
+        <img src="http://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/08-kalafior.svg" /></div>
+      <div class="draggable owoce dragany">
+        <img src="https://lem5.sukabilgorajska.pl/wp-content/uploads/2022/03/12-truskawki.svg" /></div>
 
 <div class="dropzony">
   <div id="outer-dropzone" class="dropzone">
@@ -231,22 +250,22 @@ interact('.dropzone').dropzone({
     var dropzoneElement = event.target
 
     // feedback the possibility of a drop
-    dropzoneElement.classList.add('drop-target')
-    draggableElement.classList.add('can-drop')
-    draggableElement.textContent = 'Dragged in'
+    // dropzoneElement.classList.add('drop-target')
+    // draggableElement.classList.add('can-drop')
+    // draggableElement.textContent = 'Dragged in'
 
 
   },
   ondragleave: function (event) {
     // remove the drop feedback style
-    event.target.classList.remove('drop-target')
-    event.relatedTarget.classList.remove('can-drop')
-    event.relatedTarget.textContent = 'Dragged out'
+    // event.target.classList.remove('drop-target')
+    // event.relatedTarget.classList.remove('can-drop')
+    // event.relatedTarget.textContent = 'Dragged out'
   },
   ondrop: function (event) {
     var draggableElement = event.relatedTarget
-    event.relatedTarget.textContent = 'Dropped'
-    gsap.to(draggableElement, 2, { opacity: 0 })
+    // event.relatedTarget.textContent = 'Hurra'
+    gsap.to(draggableElement, .7, { opacity: 0 })
 
 
   },
@@ -280,20 +299,20 @@ interact('.dropzone2').dropzone({
     var dropzoneElement = event.target
 
     // feedback the possibility of a drop
-    dropzoneElement.classList.add('drop-target')
-    draggableElement.classList.add('can-drop')
-    draggableElement.textContent = 'Dragged in'
+    // dropzoneElement.classList.add('drop-target')
+    // draggableElement.classList.add('can-drop')
+    // draggableElement.textContent = 'Dragged in'
   },
   ondragleave: function (event) {
     // remove the drop feedback style
-    event.target.classList.remove('drop-target')
-    event.relatedTarget.classList.remove('can-drop')
-    event.relatedTarget.textContent = 'Dragged out'
+    // event.target.classList.remove('drop-target')
+    // event.relatedTarget.classList.remove('can-drop')
+    // event.relatedTarget.textContent = 'Dragged out'
   },
   ondrop: function (event) {
     var draggableElement = event.relatedTarget
-    event.relatedTarget.textContent = 'Dropped'
-    gsap.to(draggableElement, 2, { opacity: 0 });
+    // event.relatedTarget.textContent = 'Hurra'
+    gsap.to(draggableElement, .7, { opacity: 0 });
 
   },
   ondropdeactivate: function (event) {
@@ -308,17 +327,25 @@ interact('.dropzone2').dropzone({
 </script>
 
 <style scoped>
+
 .dragany {
   width: 15em;
   height: 15em;
   margin: 0;
-  background-color: #29e;
-  color: white;
-  border-radius: 0.75em;
+  /* From https://css.glass  */
+  background: rgba(255, 255, 255, ,7);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+
   padding: 0;
   touch-action: none;
   user-select: none;
   transform: translate(0px, 0px);
+  position: absolute;
+  top: 40vh; left: 40vw;
+  border-radius: 50%;
 }
 #outer-dropzone, #outer-dropzone2 {
   height: 340px;
@@ -333,9 +360,9 @@ interact('.dropzone2').dropzone({
 
   border: dashed 4px transparent;
   border-radius: 4px;
-  margin: 10px auto 30px;
+  margin: 0;
   padding: 10px;
-  width: 30%;
+  min-width: 30%;
   transition: background-color 0.3s;
 }
 #outer-dropzone2 {
@@ -359,9 +386,9 @@ interact('.dropzone2').dropzone({
 .dragaj {
   position: fixed;
   top: 0; left: 0;
+  overflow-y: scroll;
 
-
-
+  z-index: 39;
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -372,25 +399,16 @@ interact('.dropzone2').dropzone({
   background-size: cover;
 
 }
-.loading  {
-  position: fixed;
-  top:0; left: 0;
-  z-index: 19;
-  width: 100vw!important;
-  height: 100vh!important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.loading img {
-  border-radius: 50%;
-}
-
 
 @media only screen and (orientation: landscape) {
   .dropzony {
       display: flex;
-      margin: 50vh 0 0 0;
+      gap: 4rem;
+      flex-shrink: 0;
+      justify-content: space-between;
+
+
+      margin: 20% 0 ;
   }
 }
 @media only screen and (orientation: portrait) {
@@ -399,7 +417,8 @@ interact('.dropzone2').dropzone({
       flex-direction: column;
       margin: 0;
       padding: 0;
-      display: none;
+      width: 100vw;
+      height: 100vh;
 
 
   }
